@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# CASE: 1
+# text assigning methods to a variable
+
+variable='value'
+echo -e "\n Method 1: " $variable
+echo -e "\n Method 2: " ${variable}
+echo -e "\n Method 3: " "$varibale"
+echo "=========================================="
+
+# CASE: 2
+# Counting total count of characters.
+
+var2="Counting the number of characters."
+echo -e "\n\n"  $var2 "\nTotal : " ${#var2} "characters"
+echo "=========================================="
+
+# CASE: 3
+# Concatenation method
+
+echo -e "\n\nHere we have some concatenation methods...\n"
+var1='I am learning'
+var2="Bash scripting"
+var3='now-a-days happily.'
+res1=${var1}${var2}${var3}
+echo -e "\nMethod 1: " $res1
+
+res2=$var1$var2$var3
+echo -e "\nMethod 2: " $res2
+echo -e "\n\n Adding patterns in Concatenation methods...\n"
+res=${var1}**${var2}**${var3}
+echo -e "\nMethod 3: " $res
+res=$var1**$var2**$var3
+echo -e "\nMethod 4: " $res
+
+
+
+
+
+echo "=========================================="
