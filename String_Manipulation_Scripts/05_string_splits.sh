@@ -62,3 +62,37 @@ do
    echo "$i"
 done
 
+echo -e "\n========================================================\n"
+
+# EXAMPLE: 5
+echo -e "\n\nWithout IFS, This time delimeter is colon:"
+str="I:am:patiently:learning:bash:scripting."
+echo -e "String is:\n" "$str"
+readarray -d : -t newarr <<< "$str"
+i=0
+for i in "${newarr[@]}"
+do
+  echo $i
+done
+
+echo -e "\n========================================================\n"
+
+# EXAMPLE: 6
+
+echo -e "\n Split string with multi-character delimiter:\n"
+text="shToday shWe shwill shlearn shstring shmanipulation shscripting shmethod."
+echo -e "Text is : $text \n"
+delimeter="sh"
+string=$text$delimeter
+newarray=()
+while [[ $string ]]; do
+	 newarray+=( "${string%%"$delimiter"*}" )
+	  string=${string#*"$delimiter"}
+  done
+
+  # Print the words after the split
+  for value in ${newarray[@]}
+  do
+	   echo "$value "
+   done
+
